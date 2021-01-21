@@ -25,6 +25,9 @@
 
 namespace RobotRpc {
 
+  //! Version identifier
+  extern const char ROBOTRPC_VERSION[];
+
   //! Utilities for XML parsing, encoding, and decoding and message handlers.
   class ROBOTRPCPP_DECL RobotRpcUtil {
   public:
