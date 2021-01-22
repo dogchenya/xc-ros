@@ -1,9 +1,8 @@
 
 #ifndef _ROBOTRPCDISPATCH_H_
 #define _ROBOTRPCDISPATCH_H_
-//
-// RobotRpc++ Copyright (c) 2002-2003 by Chris Morley
-//
+
+
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
 #endif
@@ -19,6 +18,7 @@ namespace RobotRpc {
   // An RPC source represents a file descriptor to monitor
   class RobotRpcSocketSource;
 
+  // 监控 文件描述符 集合的触发的事件
   //! An object which monitors file descriptors for events and performs
   //! callbacks when interesting events happen.
   class ROBOTRPCPP_DECL RobotRpcDispatch {

@@ -22,6 +22,18 @@ add_subdirectory(src)
 #)
 
 add_executable(main main.cpp)
-
 #增加链接库
 target_link_libraries(main robotrpcpp)
+
+add_executable(server server.cpp)
+#增加链接库
+target_link_libraries(server robotrpcpp)
+
+add_executable(client client.cpp)
+#增加链接库
+target_link_libraries(client robotrpcpp)
+
+SET(CMAKE_BUILD_TYPE "Debug")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g") 
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")

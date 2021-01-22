@@ -84,7 +84,7 @@ RobotRpcClient::close()
   _connectionState = NO_CONNECTION;
   _disp.exit();
   _disp.removeSource(this);
-  RobotRpcSocketSource::close();
+  Super::close();
 }
 
 
@@ -188,7 +188,7 @@ RobotRpcClient::executeCheckDone(XmlRpcValue& result)
   return true;
 }
 
-// RobotRpcSocketSource interface implementation
+//父类RobotRpcSocketSource interface implementation
 // Handle server responses. Called by the event dispatcher during execute.
 unsigned
 RobotRpcClient::handleEvent(unsigned eventType)
@@ -380,7 +380,7 @@ RobotRpcClient::readHeader()
     // have timed out, so we try one more time.
     if (getKeepOpen() && _header.length() == 0 && _sendAttempts++ == 0) {
       RobotRpcUtil::log(4, "RobotRpcClient::readHeader: re-trying connection");
-      RobotRpcSocketSource::close();
+      Super::close();
       _connectionState = NO_CONNECTION;
       _eof = false;
       return setupConnection();

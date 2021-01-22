@@ -74,6 +74,8 @@ namespace RobotRpc {
     virtual unsigned handleEvent(unsigned eventType);
 
   protected:
+    typedef RobotRpcSocketSource Super;
+    
     // Execution processing helpers
     virtual bool doConnect();
     virtual bool setupConnection();
@@ -126,6 +128,7 @@ namespace RobotRpc {
     // Number of bytes expected in the response body (parsed from response header)
     int _contentLength;
 
+    //事件调度
     // Event dispatcher
     RobotRpcDispatch _disp;
 

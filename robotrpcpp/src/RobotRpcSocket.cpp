@@ -86,12 +86,18 @@ static inline bool
 nonFatalError()
 {
   int err = RobotRpcSocket::getError();
+  // errno == EINTR,表示系统当前中断了
+  // 如果errno == EAGAIN 或者 EWOULDBLOCK，非阻塞socket直接忽略;如果是阻塞的socket,一般是读写操作超时了，还未返回
+  // 如果 errno == EINPROGRESS，表示正在处理中，否则表示连接出错了，需要关闭重连
   return (err == EINPROGRESS || err == EAGAIN || err == EWOULDBLOCK || err == EINTR);
 }
 
 int RobotRpcSocket::socket()
 {
     initWinSock();
+    //SOCK_STREAM : 表示面向连接的数据传输方式 TCP
+    //SOCK_DGRAM  : 无连接，不安全 但效率高 UDP 
+    //注意：SOCK_DGRAM 没有想象中的糟糕，不会频繁的丢失数据，数据错误只是小概率事件。
     return (int) ::socket(sb_use_ipv6_ ? AF_INET6 : AF_INET, SOCK_STREAM, 0);
 }
 
@@ -144,6 +150,7 @@ bool RobotRpcSocket::bind(int fd, int port)
 
 bool RobotRpcSocket::listen(int fd, int backlog)
 {
+    //backlog : 等待连接队列的最大长度
     return (::listen(fd, backlog));
 }
 
@@ -237,6 +244,7 @@ bool RobotRpcSocket::connect(int fd, std::string& host, int port)
 
 bool RobotRpcSocket::nbRead(int fd, std::string& s, bool *eof)
 {
+    //一次4M
     const int READ_SIZE = 4096;   // Number of bytes to attempt to read at a time
     char readBuf[READ_SIZE];
 
@@ -251,12 +259,15 @@ bool RobotRpcSocket::nbRead(int fd, std::string& s, bool *eof)
     #endif
         //XmlRpcUtil::log(5, "XmlRpcSocket::nbRead: read/recv returned %d.", n);
 
+        //当read 返回值 > 0时，表示实际从缓存中读入的字节数目
         if (n > 0) {
         readBuf[n] = 0;
         s.append(readBuf, n);
+        //返回值 == 0时，表示对端已经关闭了socket
         } else if (n == 0) {
         *eof = true;
         } else if (nonFatalError()) {
+        //
         wouldBlock = true;
         } else {
         return false;   // Error
