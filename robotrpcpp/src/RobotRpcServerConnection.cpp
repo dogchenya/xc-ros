@@ -6,6 +6,9 @@
 #include "RobotRpcUtil.h"
 #include "RobotRpcDispatch.h"
 #include "RobotRpcException.h"
+#include "RobotRpcServer.h"
+#include "RobotRpcServerMethod.h"
+
 #ifndef MAKEDEPEND
 # include <stdio.h>
 # include <stdlib.h>
