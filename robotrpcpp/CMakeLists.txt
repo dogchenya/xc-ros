@@ -14,7 +14,10 @@ endif()
 # 并将名称保存到 DIR_SRCS 变量
 aux_source_directory(. DIR_SRCS)
 
-include_directories ("${PROJECT_SOURCE_DIR}/include")
+include_directories (
+  ${PROJECT_SOURCE_DIR}
+  "${PROJECT_SOURCE_DIR}/include"
+  )
 add_subdirectory(src)
 
 #add_library(robotrpcpp
@@ -32,6 +35,18 @@ target_link_libraries(server robotrpcpp)
 add_executable(client client.cpp)
 #增加链接库
 target_link_libraries(client robotrpcpp)
+
+add_executable(helloclient
+    ${PROJECT_SOURCE_DIR}/simple-test/HelloClient.cpp)
+#增加链接库
+target_link_libraries(helloclient  robotrpcpp)
+
+add_executable(helloserver
+    ${PROJECT_SOURCE_DIR}/simple-test/HelloServer.cpp)
+#增加链接库
+target_link_libraries(helloserver  robotrpcpp)
+
+
 
 SET(CMAKE_BUILD_TYPE "Debug")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g") 

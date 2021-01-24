@@ -111,6 +111,17 @@ void RobotRpcSocket::close(int fd)
     #endif // _WINDOWS
 }
 
+
+bool RobotRpcSocket::setNonBlocking(int fd)
+{
+#if defined(_WINDOWS)
+  unsigned long flag = 1;
+  return (ioctlsocket((SOCKET)fd, FIONBIO, &flag) == 0);
+#else
+  return (fcntl(fd, F_SETFL, O_NONBLOCK) == 0);
+#endif // _WINDOWS
+}
+
 bool RobotRpcSocket::setReuseAddr(int fd)
 {
     int sflag = 1;

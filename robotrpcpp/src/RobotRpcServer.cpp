@@ -110,6 +110,7 @@ RobotRpcServer::bindAndListen(int port, int backlog /*= 5*/)
   if ( ! RobotRpcSocket::listen(fd, backlog))
   {
     this->close();
+    std::string sdd = RobotRpcSocket::getErrorMsg().c_str();
     RobotRpcUtil::error("RobotRpcServer::bindAndListen: Could not set socket in listening mode (%s).", RobotRpcSocket::getErrorMsg().c_str());
     return false;
   }
