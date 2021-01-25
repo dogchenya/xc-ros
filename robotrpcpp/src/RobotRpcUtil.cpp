@@ -70,7 +70,7 @@ public:
 // Error handler singleton
 RobotRpcErrorHandler* RobotRpcErrorHandler::_errorHandler = &defaultErrorHandler;
 
-
+//设置日志详细程度的简易API
 // Easy API for log verbosity
 int RobotRpc::getVerbosity() { return RobotRpcLogHandler::getVerbosity(); }
 void RobotRpc::setVerbosity(int level) { RobotRpcLogHandler::setVerbosity(level); }

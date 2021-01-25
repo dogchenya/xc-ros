@@ -152,7 +152,7 @@ bool RobotRpcSocket::bind(int fd, int port)
         ss_len = sizeof(sockaddr_in);
 
         address->sin_family = AF_INET;
-        address->sin_addr.s_addr = htonl(INADDR_ANY);
+        address->sin_addr.s_addr = htonl(INADDR_ANY);//IP地址设置成INADDR_ANY,让系统自动获取本机的IP地址
         address->sin_port = htons((u_short) port);
     }
 
@@ -162,7 +162,7 @@ bool RobotRpcSocket::bind(int fd, int port)
 bool RobotRpcSocket::listen(int fd, int backlog)
 {
     //backlog : 等待连接队列的最大长度
-    return (::listen(fd, backlog));
+    return (::listen(fd, backlog) == 0);
 }
 
 int RobotRpcSocket::accept(int fd)

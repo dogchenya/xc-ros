@@ -13,6 +13,7 @@ int main(int argc, char* argv[])
     return -1;
   }
   int port = atoi(argv[2]);
+  //int port = 8080;
   //XmlRpc::setVerbosity(5);
 
   // Use introspection API to look up the supported methods

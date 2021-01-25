@@ -10,6 +10,9 @@ if(WIN32)
   add_definitions(-D_WINDOWS)
 endif()
 
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+SET(LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
+
 # 查找当前目录下的所有源文件
 # 并将名称保存到 DIR_SRCS 变量
 aux_source_directory(. DIR_SRCS)
@@ -18,34 +21,15 @@ include_directories (
   ${PROJECT_SOURCE_DIR}
   "${PROJECT_SOURCE_DIR}/include"
   )
-add_subdirectory(src)
+
+#一般是在工程主文件中添加
+#向当前工程添加存放 源代码 的子目录，并指定目标二进制存放的位置。 
+add_subdirectory(src lib)
+add_subdirectory(simple-test)
 
 #add_library(robotrpcpp
 #  src/RobotRpcSocket.cpp
 #)
-
-add_executable(main main.cpp)
-#增加链接库
-target_link_libraries(main robotrpcpp)
-
-add_executable(server server.cpp)
-#增加链接库
-target_link_libraries(server robotrpcpp)
-
-add_executable(client client.cpp)
-#增加链接库
-target_link_libraries(client robotrpcpp)
-
-add_executable(helloclient
-    ${PROJECT_SOURCE_DIR}/simple-test/HelloClient.cpp)
-#增加链接库
-target_link_libraries(helloclient  robotrpcpp)
-
-add_executable(helloserver
-    ${PROJECT_SOURCE_DIR}/simple-test/HelloServer.cpp)
-#增加链接库
-target_link_libraries(helloserver  robotrpcpp)
-
 
 
 SET(CMAKE_BUILD_TYPE "Debug")

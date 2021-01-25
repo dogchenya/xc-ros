@@ -64,13 +64,13 @@ public:
 
 int main(int argc, char* argv[])
 {
-  // if (argc != 2) {
-  //   std::cerr << "Usage: HelloServer serverPort\n";
-  //   return -1;
-  // }
-  //int port = atoi(argv[1]);
-  int port = 8080;
+  if (argc != 2) {
+    std::cerr << "Usage: HelloServer serverPort\n";
+    return -1;
+  }
+  int port = atoi(argv[1]);
 
+  //log
   RobotRpc::setVerbosity(5);
 
   // Create the server socket on the specified port
