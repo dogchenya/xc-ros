@@ -83,9 +83,9 @@ RobotRpcDispatch::work(double timeout)
 {
   // Loosely based on `man select` > Correspondence between select() and poll() notifications
   // and cloudius-systems/osv#35, cloudius-systems/osv@b53d39a using poll to emulate select
-  const unsigned POLLIN_REQ = POLLIN; // Request read
+  const unsigned POLLIN_REQ = POLLIN; // Request read 请求读事件
   const unsigned POLLIN_CHK = (POLLIN | POLLHUP | POLLERR); // Readable or connection lost
-  const unsigned POLLOUT_REQ = POLLOUT; // Request write
+  const unsigned POLLOUT_REQ = POLLOUT; // Request write 请求写事件
   const unsigned POLLOUT_CHK = (POLLOUT | POLLERR); // Writable or connection lost
   const unsigned POLLEX_REQ = POLLPRI; // Out-of-band data received
   const unsigned POLLEX_CHK = (POLLPRI | POLLNVAL); // Out-of-band data or invalid fd
@@ -101,6 +101,13 @@ RobotRpcDispatch::work(double timeout)
 
     // Construct the sets of descriptors we are interested in
     const unsigned source_cnt = _sources.size();
+
+
+// struct pollfd{
+// int fd； // 文件描述符
+// short event；// 请求的事件
+// short revent；// 返回的事件
+// }
     pollfd fds[source_cnt];
     RobotRpcSocketSource * sources[source_cnt];
 

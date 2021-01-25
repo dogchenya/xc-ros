@@ -76,6 +76,7 @@ int main(int argc, char* argv[])
   // Create the server socket on the specified port
   s.bindAndListen(port);
 
+  // 内省
   // Enable introspection
   s.enableIntrospection(true);
 
