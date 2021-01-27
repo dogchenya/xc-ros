@@ -105,8 +105,8 @@ RobotRpcDispatch::work(double timeout)
 
 // struct pollfd{
 // int fd； // 文件描述符
-// short event；// 请求的事件
-// short revent；// 返回的事件
+// short event；// 要求查询的事件掩码
+// short revent；// 返回的事件掩码
 // }
     pollfd fds[source_cnt];
     RobotRpcSocketSource * sources[source_cnt];
@@ -125,6 +125,12 @@ RobotRpcDispatch::work(double timeout)
 
     // Check for events
     int nEvents = poll(fds, source_cnt, (timeout_ms < 0) ? -1 : timeout_ms);
+
+    //超时
+    if(nEvents == 0)
+    {
+        RobotRpcUtil::log(4, "RobotRpcDispatch::work: poll is timeout (%d).", nEvents);
+    }
 
     if (nEvents < 0)
     {

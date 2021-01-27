@@ -90,6 +90,7 @@ RobotRpcServer::bindAndListen(int port, int backlog /*= 5*/)
     return false;
   }
 
+  //允许立即 重新绑定 此端口，以便不延迟服务器重新启动
   // Allow this port to be re-bound immediately so server re-starts are not delayed
   if ( ! RobotRpcSocket::setReuseAddr(fd))
   {
