@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <thread>
+#include <vector>
 
 #include "RobotRpcServer.h"
 #include "RobotRpcServerMethod.h"
