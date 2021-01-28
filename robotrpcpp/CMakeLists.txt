@@ -51,6 +51,7 @@ SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 aux_source_directory(. DIR_SRCS)
 
 include_directories (
+  ${CMAKE_CURRENT_BINARY_DIR}
   ${PROJECT_SOURCE_DIR}
   "${PROJECT_SOURCE_DIR}/include"
   )
@@ -58,6 +59,7 @@ include_directories (
 #一般是在工程主文件中添加
 #向当前工程添加存放 源代码 的子目录，并指定目标二进制存放的位置。 
 add_subdirectory(src)
+add_subdirectory(protorpc)
 add_subdirectory(simple-test)
 
 #add_library(robotrpcpp
