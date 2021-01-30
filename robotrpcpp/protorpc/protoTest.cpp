@@ -1,5 +1,5 @@
 #include <iostream>
-#include "protorpc/message.pb.h"
+#include "robotrpcpp/protorpc/message.pb.h"
 
 using namespace std;
 int main(int argc, char const *argv[])

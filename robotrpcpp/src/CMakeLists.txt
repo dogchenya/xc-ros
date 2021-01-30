@@ -36,10 +36,4 @@ target_link_libraries(robotrpcpp pthread rt)
 #         ARCHIVE DESTINATION lib)
 # INSTALL (FILES hello.h DESTINATION include/hello)
 
-install(TARGETS robotrpcpp DESTINATION lib)
-
-
-SET(CMAKE_BUILD_TYPE "Debug")
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g") 
-SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
-SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+# install(TARGETS robotrpcpp DESTINATION lib)
