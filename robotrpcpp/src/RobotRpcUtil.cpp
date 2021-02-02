@@ -9,8 +9,6 @@
 # include <string.h>
 #endif
 
-#include "RobotRpc.h"
-
 using namespace RobotRpc;
 
 

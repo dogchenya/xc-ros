@@ -47,11 +47,13 @@ SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 include_directories (
   ${CMAKE_CURRENT_BINARY_DIR}
   ${PROJECT_SOURCE_DIR}
+  "${PROJECT_SOURCE_DIR}/common"
   "${PROJECT_SOURCE_DIR}/include"
   "${PROJECT_SOURCE_DIR}/robotrpcpp/include"
   )
 
 # 下一级是啥？
+add_subdirectory(common)
 add_subdirectory(robotrpcpp)
 #add_subdirectory(xcroscpp)
 

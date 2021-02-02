@@ -2,7 +2,7 @@
 #include "RobotRpcServerConnection.h"
 
 #include "RobotRpcSocket.h"
-#include "RobotRpc.h"
+#include "RobotRpcUtil.h"
 #include "RobotRpcUtil.h"
 #include "RobotRpcDispatch.h"
 #include "RobotRpcException.h"
