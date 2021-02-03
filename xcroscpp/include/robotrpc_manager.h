@@ -6,6 +6,8 @@
 #include <set>
 
 #include "common/xcroscommon.h"
+#include "ros/duration.h"
+#include "ros/time.h"
 
 #include "robotrpcpp/include/RobotRpc.h"
 
@@ -18,8 +20,8 @@ namespace xcros
         RobotRpc::XmlRpcValue responseBool(int code, const std::string& msg, bool response);
     }
 
-    class XMLRPCCallWrapper;
-    typedef std::shared_ptr<XMLRPCCallWrapper> XMLRPCCallWrapperPtr;
+    class RobotRPCCallWrapper;
+    typedef std::shared_ptr<RobotRPCCallWrapper> RobotRPCCallWrapperPtr;
 
 //class ASyncXMLRPCConnection
     class ASyncXMLRPCConnection : public std::enable_shared_from_this<ASyncXMLRPCConnection>
@@ -47,10 +49,10 @@ namespace xcros
         }
 
     bool in_use_;
-    //ros::SteadyTime last_use_time_; // for reaping
+    xcros::SteadyTime last_use_time_; // for reaping
     RobotRpc::RobotRpcClient* client_;
 
-    //static const ros::WallDuration s_zombie_time_; // how long before it is toasted
+    static const xcros::WallDuration s_zombie_time_; // how long before it is toasted
     };
 
 //class RobotRPCManager
@@ -100,7 +102,7 @@ namespace xcros
         V_CachedRobotRpcClient clients_;
         std::mutex clients_mutex_;
         
-        //ros::WallDuration master_retry_timeout_;
+        xcros::WallDuration master_retry_timeout_;
 
         S_ASyncXMLRPCConnection added_connections_;
         std::mutex added_connections_mutex_;
@@ -115,7 +117,7 @@ namespace xcros
         {
             std::string name;
             XMLRPCFunc function;
-            XMLRPCCallWrapperPtr wrapper;
+            RobotRPCCallWrapperPtr wrapper;
         };
         typedef std::map<std::string, FunctionInfo> M_StringToFuncInfo;
         std::mutex functions_mutex_;

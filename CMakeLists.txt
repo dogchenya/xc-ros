@@ -48,13 +48,18 @@ include_directories (
   ${CMAKE_CURRENT_BINARY_DIR}
   ${PROJECT_SOURCE_DIR}
   "${PROJECT_SOURCE_DIR}/common"
-  "${PROJECT_SOURCE_DIR}/include"
   "${PROJECT_SOURCE_DIR}/robotrpcpp/include"
+  "${PROJECT_SOURCE_DIR}/xcroscpp_core/cpp_common/include"
+  "${PROJECT_SOURCE_DIR}/xcroscpp_core/rostime/include"
+  "${PROJECT_SOURCE_DIR}/xcroscpp_core/roscpp_traits/include"
+  "${PROJECT_SOURCE_DIR}/xcroscpp_core/roscpp_serialization/include"
+  "${PROJECT_SOURCE_DIR}/xcroscpp/include"
   )
 
 # 下一级是啥？
 add_subdirectory(common)
 add_subdirectory(robotrpcpp)
-#add_subdirectory(xcroscpp)
+add_subdirectory(xcroscpp_core)
+add_subdirectory(xcroscpp)
 
 

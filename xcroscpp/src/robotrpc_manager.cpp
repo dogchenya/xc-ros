@@ -7,7 +7,8 @@
 #include <mutex>
 #include <thread> 
 
-#include "include/RobotRpc.h"
+#include "RobotRpc.h"
+#include "ros/duration.h"
 #include "network.h"
 
 using namespace RobotRpc;
@@ -138,7 +139,7 @@ namespace xcros
     for (int wait_count = 0; !clients_.empty() && wait_count < 10; wait_count++)
     {
         //ROSCPP_LOG_DEBUG("waiting for xmlrpc connection to finish...");
-        ros::WallDuration(0.01).sleep();
+        xcros::WallDuration(0.01).sleep();
     }
 
     std::lock_guard<std::mutex> lock(functions_mutex_);
@@ -379,7 +380,7 @@ namespace xcros
     FunctionInfo info;
     info.name = function_name;
     info.function = cb;
-    info.wrapper.reset(new XMLRPCCallWrapper(function_name, cb, &server_));
+    info.wrapper.reset(new RobotRPCCallWrapper(function_name, cb, &server_));
     functions_[function_name] = info;
 
     return true;
