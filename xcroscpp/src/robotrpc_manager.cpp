@@ -217,7 +217,7 @@ namespace xcros
 
     void RobotRPCManager::serverThreadFunc()
     {
-    disableAllSignalsInThisThread();
+    xcros::disableAllSignalsInThisThread();
 
     while(!shutting_down_)
     {

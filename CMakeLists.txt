@@ -54,6 +54,7 @@ include_directories (
   "${PROJECT_SOURCE_DIR}/xcroscpp_core/roscpp_traits/include"
   "${PROJECT_SOURCE_DIR}/xcroscpp_core/roscpp_serialization/include"
   "${PROJECT_SOURCE_DIR}/xcroscpp/include"
+  "${PROJECT_SOURCE_DIR}/xcrosconsole/include"
   )
 
 # 下一级是啥？

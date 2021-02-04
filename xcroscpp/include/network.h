@@ -1,7 +1,8 @@
 #ifndef XCROSCPP_NETWORK_H
 #define XCROSCPP_NETWORK_H
 
-//#include "forwards.h"
+#include "forwards.h"
+#include "xcroscpp_common.h"
 
 namespace xcros
 {
