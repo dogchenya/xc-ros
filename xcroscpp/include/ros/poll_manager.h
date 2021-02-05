@@ -9,8 +9,8 @@
 #include <boost/thread/thread.hpp>
 
 #include "xcroscommon.h"
-#include "io.h"
-#include "poll_set.h"
+#include "ros/io.h"
+#include "ros/poll_set.h"
 
 
 namespace xcros

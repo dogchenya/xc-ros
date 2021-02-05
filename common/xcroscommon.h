@@ -36,8 +36,29 @@ namespace xcros
         Singleton& operator = (const Singleton& rhs){}
 
         static T volatile m_instance; //2.为什么加上volatile关键字 --> 确保多线程每次从内存中取值，而不是从寄存器中取值
-
     };
+
+    // template<typename T>
+    // class SingletonPtr
+    // {
+    // public:
+    //     static T& Instance()
+    //     {
+    //         static T m_instance = boost::make_shared<T>();
+    //         return m_instance;
+    //     }
+
+    // protected:
+    //     SingletonPtr(void){};
+    //     virtual ~SingletonPtr(){};
+
+    // private:
+    //     SingletonPtr(const SingletonPtr& rhs){}
+    //     SingletonPtr& operator = (const SingletonPtr& rhs){}
+
+    // }
+
+
 
     // using std::string;
 

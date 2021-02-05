@@ -13,8 +13,8 @@
 #include <boost/thread/condition_variable.hpp>
 #endif // BOOST_THREAD_HAS_CONDATTR_SET_CLOCK_MONOTONIC
 
-#include "xcroscpp_common.h"
-#include "callback_queue_interface.h"
+#include "ros/xcroscpp_common.h"
+#include "ros/callback_queue_interface.h"
 #include "ros/time.h"
 
 #include <boost/shared_ptr.hpp>

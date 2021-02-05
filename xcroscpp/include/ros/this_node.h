@@ -1,8 +1,8 @@
 #ifndef _XCROSCPP_THIS_NODE_H_
 #define _XCROSCPP_THIS_NODE_H_
 
-#include "xcroscpp_common.h"
-#include "forwards.h"
+#include "ros/xcroscpp_common.h"
+#include "ros/forwards.h"
 
 namespace xcros
 {

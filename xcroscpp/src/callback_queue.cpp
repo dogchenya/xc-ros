@@ -3,7 +3,7 @@
 #define BOOST_THREAD_HAS_CONDATTR_SET_CLOCK_MONOTONIC
 #endif
 
-#include "callback_queue.h"
+#include "ros/callback_queue.h"
 #include <assert.h>
 #include <boost/scope_exit.hpp>
 

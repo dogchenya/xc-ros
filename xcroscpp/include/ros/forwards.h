@@ -16,7 +16,7 @@
 
 #include <ros/time.h>
 #include <ros/macros.h>
-#include "exceptions.h"
+#include "ros/exceptions.h"
 #include "ros/datatypes.h"
 
 namespace xcros

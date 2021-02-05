@@ -2,7 +2,7 @@
 #define _XCROSCPP_CALLBACK_QUEUE_INTERFACE_H_
 
 #include <memory>
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "ros/types.h"
 
 namespace xcros

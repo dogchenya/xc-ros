@@ -7,7 +7,7 @@
 
 #include "common/xcroscommon.h"
 
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "ros/duration.h"
 #include "ros/time.h"
 

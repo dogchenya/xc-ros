@@ -3,8 +3,8 @@
 
 #include <vector>
 #include <memory>
-#include "io.h"
-#include "xcroscpp_common.h"
+#include "ros/io.h"
+#include "ros/xcroscpp_common.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/function.hpp>
 #include <boost/thread/mutex.hpp>

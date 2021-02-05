@@ -1,9 +1,9 @@
 #ifndef _XCROSCPP_FILE_LOG_H_
 #define _XCROSCPP_FILE_LOG_H_
 
-#include "forwards.h"
+#include "ros/forwards.h"
 #include <ros/console.h>
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "rosconsole/macros_generated.h"
 
 #define ROSCPP_LOG_DEBUG(...) ROS_DEBUG_NAMED("roscpp_internal", __VA_ARGS__)

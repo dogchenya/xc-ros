@@ -12,7 +12,7 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 
 #ifdef WIN32
 	#include <winsock2.h> // For struct timeval

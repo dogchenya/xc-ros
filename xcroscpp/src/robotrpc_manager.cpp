@@ -1,4 +1,4 @@
-#include "robotrpc_manager.h"
+#include "ros/robotrpc_manager.h"
 
 #include <unistd.h>
 #include <assert.h>
@@ -9,7 +9,7 @@
 
 #include "RobotRpc.h"
 #include "ros/duration.h"
-#include "network.h"
+#include "ros/network.h"
 
 using namespace RobotRpc;
 

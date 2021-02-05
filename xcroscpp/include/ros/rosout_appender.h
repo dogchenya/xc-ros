@@ -8,7 +8,7 @@
 #include <condition_variable>
 
 #include <ros/message_forward.h>
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "ros/console.h"
 
 namespace rosgraph_msgs

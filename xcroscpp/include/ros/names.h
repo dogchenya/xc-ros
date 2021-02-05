@@ -1,8 +1,8 @@
 #ifndef _XCROSCPP_NAMES_H_
 #define _XCROSCPP_NAMES_H_
 
-#include "forwards.h"
-#include "xcroscpp_common.h"
+#include "ros/forwards.h"
+#include "ros/xcroscpp_common.h"
 
 namespace xcros
 {
