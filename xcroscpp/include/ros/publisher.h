@@ -51,7 +51,7 @@ public:
     void publish(const M& message) const
     {
       using namespace serialization;
-      namespace mt = ros::message_traits;
+      namespace mt = xcros::message_traits;
 
       if (!impl_)
         {

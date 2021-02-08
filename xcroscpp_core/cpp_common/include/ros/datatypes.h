@@ -7,7 +7,8 @@
 #include <set>
 #include <list>
 
-#include <memory>
+//#include <memory>
+#include "boost/shared_ptr.hpp"
 
 namespace xcros
 {
@@ -17,7 +18,7 @@ namespace xcros
     typedef std::map<std::string, std::string> M_string;
     typedef std::pair<std::string, std::string> StringPair;
 
-    typedef std::shared_ptr<M_string> M_stringPtr;
+    typedef boost::shared_ptr<M_string> M_stringPtr;
 }
 
 #endif

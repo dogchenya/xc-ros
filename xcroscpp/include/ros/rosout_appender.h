@@ -7,9 +7,13 @@
 #include <vector>
 #include <condition_variable>
 
+#include "boost/shared_ptr.hpp"
+#include "boost/weak_ptr.hpp"
+
 #include <ros/message_forward.h>
 #include "ros/xcroscpp_common.h"
 #include "ros/console.h"
+#include "ros/forwards.h"
 
 namespace rosgraph_msgs
 {
@@ -19,9 +23,9 @@ ROS_DECLARE_MESSAGE(Log);
 namespace xcros
 {
 
-class Publication;
-typedef std::shared_ptr<Publication> PublicationPtr;
-typedef std::weak_ptr<Publication> PublicationWPtr;
+//class Publication;
+typedef boost::shared_ptr<Publication> PublicationPtr;
+typedef boost::weak_ptr<Publication> PublicationWPtr;
 
 class ROSCPP_DECL ROSOutAppender : public xcros::console::LogAppender
 {

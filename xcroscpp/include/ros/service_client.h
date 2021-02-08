@@ -157,7 +157,7 @@ private:
   // This for some reason only showed up in the rxtools package
   void deserializeFailed(const std::exception& e)
   {
-    //ROS_ERROR("Exception thrown while while deserializing service call: %s", e.what());
+    ROS_ERROR("Exception thrown while while deserializing service call: %s", e.what());
   }
 
   struct Impl

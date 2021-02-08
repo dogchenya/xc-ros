@@ -2,6 +2,7 @@
 #define _XCROSCONSOLE_ASSERT_H_
 
 #include <ros/platform.h>
+#include "rosconsole/macros_generated.h"
 
 #ifdef WIN32
 # if defined (__MINGW32__)

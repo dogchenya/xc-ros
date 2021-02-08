@@ -35,7 +35,7 @@ inline boost::shared_ptr<M> defaultMessageCreateFunction()
 }
 
 /**
- * \brief Event type for subscriptions, const ros::MessageEvent<M const>& can be used in your callback instead of const boost::shared_ptr<M const>&
+ * \brief Event type for subscriptions, const xcros::MessageEvent<M const>& can be used in your callback instead of const boost::shared_ptr<M const>&
  *
  * Useful if you need to retrieve meta-data about the message, such as the full connection header, or the publisher's node name
  */
@@ -85,17 +85,17 @@ public:
    */
   MessageEvent(const ConstMessagePtr& message)
   {
-    init(message, boost::shared_ptr<M_string>(), ros::Time::now(), true, ros::DefaultMessageCreator<Message>());
+    init(message, boost::shared_ptr<M_string>(), xcros::Time::now(), true, xcros::DefaultMessageCreator<Message>());
   }
 
   MessageEvent(const ConstMessagePtr& message, const boost::shared_ptr<M_string>& connection_header, xcros::Time receipt_time)
   {
-    init(message, connection_header, receipt_time, true, ros::DefaultMessageCreator<Message>());
+    init(message, connection_header, receipt_time, true, xcros::DefaultMessageCreator<Message>());
   }
 
   MessageEvent(const ConstMessagePtr& message, xcros::Time receipt_time)
   {
-    init(message, boost::shared_ptr<M_string>(), receipt_time, true, ros::DefaultMessageCreator<Message>());
+    init(message, boost::shared_ptr<M_string>(), receipt_time, true, xcros::DefaultMessageCreator<Message>());
   }
 
   MessageEvent(const ConstMessagePtr& message, const boost::shared_ptr<M_string>& connection_header, xcros::Time receipt_time, bool nonconst_need_copy, const CreateFunction& create)

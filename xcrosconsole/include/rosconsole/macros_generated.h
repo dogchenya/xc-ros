@@ -29,6 +29,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "ros/console_backend.h"
+#include "ros/console.h"
+
 #if (ROSCONSOLE_MIN_SEVERITY > ROSCONSOLE_SEVERITY_DEBUG)
 #define ROS_DEBUG(...)
 #define ROS_DEBUG_STREAM(args)

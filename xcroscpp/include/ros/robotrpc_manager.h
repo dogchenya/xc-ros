@@ -4,6 +4,7 @@
 #include <thread>
 #include <mutex>
 #include <set>
+#include "boost/enable_shared_from_this.hpp"
 
 #include "common/xcroscommon.h"
 
@@ -23,10 +24,10 @@ namespace xcros
     }
 
     class RobotRPCCallWrapper;
-    typedef std::shared_ptr<RobotRPCCallWrapper> RobotRPCCallWrapperPtr;
+    typedef boost::shared_ptr<RobotRPCCallWrapper> RobotRPCCallWrapperPtr;
 
 //class ASyncXMLRPCConnection
-    class ASyncXMLRPCConnection : public std::enable_shared_from_this<ASyncXMLRPCConnection>
+    class ASyncXMLRPCConnection : public boost::enable_shared_from_this<ASyncXMLRPCConnection>
     {
     public:
         virtual ~ASyncXMLRPCConnection() {}
@@ -37,7 +38,7 @@ namespace xcros
         virtual bool check() = 0;
     };
 
-    typedef std::shared_ptr<ASyncXMLRPCConnection> ASyncXMLRPCConnectionPtr;
+    typedef boost::shared_ptr<ASyncXMLRPCConnection> ASyncXMLRPCConnectionPtr;
     typedef std::set<ASyncXMLRPCConnectionPtr> S_ASyncXMLRPCConnection;
 //end
 
@@ -59,7 +60,7 @@ namespace xcros
 
 //class RobotRPCManager
     class RobotRPCManager;
-    typedef std::shared_ptr<RobotRPCManager> RobotRPCManagerPtr;
+    typedef boost::shared_ptr<RobotRPCManager> RobotRPCManagerPtr;
 
     typedef std::function<void(RobotRpc::XmlRpcValue&, RobotRpc::XmlRpcValue&)> XMLRPCFunc;
 

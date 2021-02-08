@@ -20,7 +20,7 @@ namespace xcros
  *
  * The ParameterAdapter is templated on the callback parameter type (\b not the bare message type), and provides 3 things:
  *  - Message typedef, which provides the bare message type, no const or reference qualifiers
- *  - Event typedef, which provides the ros::MessageEvent type
+ *  - Event typedef, which provides the xcros::MessageEvent type
  *  - Parameter typedef, which provides the actual parameter type (may be slightly different from M)
  *  - static getParameter(event) function, which returns a parameter type given the event
  *  - static bool is_const informs you whether or not the parameter type is a const message
@@ -41,7 +41,7 @@ template<typename M>
 struct ParameterAdapter
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef M Parameter;
   static const bool is_const = true;
 
@@ -55,7 +55,7 @@ template<typename M>
 struct ParameterAdapter<const boost::shared_ptr<M const>& >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef const boost::shared_ptr<Message const> Parameter;
   static const bool is_const = true;
 
@@ -69,13 +69,13 @@ template<typename M>
 struct ParameterAdapter<const boost::shared_ptr<M>& >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef boost::shared_ptr<Message> Parameter;
   static const bool is_const = false;
 
   static Parameter getParameter(const Event& event)
   {
-    return ros::MessageEvent<Message>(event).getMessage();
+    return xcros::MessageEvent<Message>(event).getMessage();
   }
 };
 
@@ -83,7 +83,7 @@ template<typename M>
 struct ParameterAdapter<const M&>
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef const M& Parameter;
   static const bool is_const = true;
 
@@ -97,7 +97,7 @@ template<typename M>
 struct ParameterAdapter<boost::shared_ptr<M const> >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef boost::shared_ptr<Message const> Parameter;
   static const bool is_const = true;
 
@@ -111,13 +111,13 @@ template<typename M>
 struct ParameterAdapter<boost::shared_ptr<M> >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message const> Event;
   typedef boost::shared_ptr<Message> Parameter;
   static const bool is_const = false;
 
   static Parameter getParameter(const Event& event)
   {
-    return ros::MessageEvent<Message>(event).getMessage();
+    return xcros::MessageEvent<Message>(event).getMessage();
   }
 };
 
@@ -125,8 +125,8 @@ template<typename M>
 struct ParameterAdapter<const xcros::MessageEvent<M const>& >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
-  typedef const ros::MessageEvent<Message const>& Parameter;
+  typedef xcros::MessageEvent<Message const> Event;
+  typedef const xcros::MessageEvent<Message const>& Parameter;
   static const bool is_const = true;
 
   static Parameter getParameter(const Event& event)
@@ -139,13 +139,13 @@ template<typename M>
 struct ParameterAdapter<const xcros::MessageEvent<M>& >
 {
   typedef typename boost::remove_reference<typename boost::remove_const<M>::type>::type Message;
-  typedef ros::MessageEvent<Message const> Event;
-  typedef ros::MessageEvent<Message> Parameter;
+  typedef xcros::MessageEvent<Message const> Event;
+  typedef xcros::MessageEvent<Message> Parameter;
   static const bool is_const = false;
 
   static Parameter getParameter(const Event& event)
   {
-    return ros::MessageEvent<Message>(event);
+    return xcros::MessageEvent<Message>(event);
   }
 };
 

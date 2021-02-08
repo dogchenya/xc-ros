@@ -8,11 +8,12 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/function.hpp>
 #include <boost/thread/mutex.hpp>
+#include "ros/forwards.h"
 
 namespace xcros
 {
-    class Transport;
-    typedef std::shared_ptr<Transport> TransportPtr;
+    // class Transport;
+    // typedef boost::shared_ptr<Transport> TransportPtr;
 
     class ROSCPP_DECL PollSet
     {
