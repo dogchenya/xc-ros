@@ -36,4 +36,4 @@ target_link_libraries(robotrpcpp pthread rt)
 #         ARCHIVE DESTINATION lib)
 # INSTALL (FILES hello.h DESTINATION include/hello)
 
-# install(TARGETS robotrpcpp DESTINATION lib)
+install(TARGETS robotrpcpp DESTINATION lib)

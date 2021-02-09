@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(cpp_common)
 
-aux_source_directory(. DIR_LIB_SRCS)
+aux_source_directory(./src DIR_LIB_SRCS)
 
 if(NOT WIN32)
     set_directory_properties(PROPERTIES COMPILE_OPTIONS "-Wall;-Wextra")

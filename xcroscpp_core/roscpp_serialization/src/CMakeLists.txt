@@ -10,3 +10,5 @@ ADD_LIBRARY (xcrosserialization SHARED ${DIR_LIB_SRCS})
 ADD_LIBRARY (xcrosserialization_static STATIC ${DIR_LIB_SRCS})
 
 target_link_libraries(xcrosserialization pthread rt)
+
+install(TARGETS xcrosserialization DESTINATION lib)

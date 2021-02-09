@@ -10,3 +10,5 @@ ADD_LIBRARY (xcrostime SHARED ${DIR_LIB_SRCS})
 ADD_LIBRARY (xcrostime_static STATIC ${DIR_LIB_SRCS})
 
 target_link_libraries(xcrostime pthread rt)
+
+install(TARGETS xcrostime DESTINATION lib)
