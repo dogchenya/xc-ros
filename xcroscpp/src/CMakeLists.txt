@@ -10,3 +10,5 @@ ADD_LIBRARY (xcroscpp SHARED ${DIR_LIB_SRCS})
 ADD_LIBRARY (xcroscpp_static STATIC ${DIR_LIB_SRCS})
 
 target_link_libraries(xcroscpp pthread rt)
+
+install(TARGETS xcroscpp LIBRARY DESTINATION lib)
