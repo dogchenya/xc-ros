@@ -34,6 +34,6 @@ extern void (*function_print)(void*, ::xcros::console::Level, const char*, const
 
 } // namespace backend
 } // namespace console
-} // namespace ros
+} // namespace xcros
 
 #endif

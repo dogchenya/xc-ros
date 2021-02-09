@@ -39,6 +39,6 @@ private:
 };
 typedef boost::shared_ptr<IntraProcessSubscriberLink> IntraProcessSubscriberLinkPtr;
 
-} // namespace ros
+} // namespace xcros
 
 #endif // _XCROSCPP_INTRAPROCESS_SUBSCRIBER_LINK_H_

@@ -33,4 +33,4 @@ void initInternalTimerManager()
   }
 }
 
-} // namespace ros
+} // namespace xcros

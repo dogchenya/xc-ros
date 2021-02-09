@@ -34,6 +34,6 @@ public:
   { }
 };
 
-} // namespace ros
+} // namespace xcros
 
 #endif

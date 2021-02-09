@@ -64,7 +64,8 @@ namespace xcros
 
     typedef std::function<void(RobotRpc::XmlRpcValue&, RobotRpc::XmlRpcValue&)> XMLRPCFunc;
 
-    class RobotRPCManager : public Singleton<RobotRPCManager>
+    //class RobotRPCManager : public Singleton<RobotRPCManager>
+    class RobotRPCManager : public SingletonPtr<RobotRPCManager>
     {
 
     public:

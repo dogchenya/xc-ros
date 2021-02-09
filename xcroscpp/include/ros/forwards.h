@@ -160,8 +160,8 @@ class TopicManager;
 typedef boost::shared_ptr<TopicManager> TopicManagerPtr;
 class ConnectionManager;
 typedef boost::shared_ptr<ConnectionManager> ConnectionManagerPtr;
-class XMLRPCManager;
-typedef boost::shared_ptr<XMLRPCManager> XMLRPCManagerPtr;
+class RobotRPCManager;
+typedef boost::shared_ptr<RobotRPCManager> RobotRPCManagerPtr;
 class PollManager;
 typedef boost::shared_ptr<PollManager> PollManagerPtr;
 

@@ -140,7 +140,7 @@ void ServiceServerLink::onConnectionDropped(const ConnectionPtr& conn)
   dropped_ = true;
   clearCalls();
 
-  ServiceManager::instance()->removeServiceServerLink(shared_from_this());
+  ServiceManager::Instance()->removeServiceServerLink(shared_from_this());
 }
 
 void ServiceServerLink::onRequestWritten(const ConnectionPtr& conn)
@@ -352,4 +352,4 @@ bool ServiceServerLink::isValid() const
   return !dropped_;
 }
 
-} // namespace ros
+} // namespace xcros

@@ -4,6 +4,7 @@
 #include <memory>
 #include "ros/xcroscpp_common.h"
 #include "ros/types.h"
+#include "forwards.h"
 
 namespace xcros
 {
@@ -29,7 +30,7 @@ public:
     virtual bool ready() { return true; }
 };
 
-typedef std::shared_ptr<CallbackInterface> CallbackInterfacePtr;
+//typedef boost::shared_ptr<CallbackInterface> CallbackInterfacePtr;
 
 class ROSCPP_DECL CallbackQueueInterface
 {

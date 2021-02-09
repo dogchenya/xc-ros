@@ -46,7 +46,7 @@ struct Printer<uint8_t>
 };
 
 } // namespace message_operations
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSLIB_MESSAGE_OPERATIONS_H
 

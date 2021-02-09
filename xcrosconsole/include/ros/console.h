@@ -238,7 +238,7 @@ ROSCONSOLE_DECL void formatToBuffer(boost::shared_array<char>& buffer, size_t& b
 ROSCONSOLE_DECL std::string formatToString(const char* fmt, ...);
 
 } // namespace console
-} // namespace ros
+} // namespace xcros
 
 #ifdef WIN32
 #define ROS_LIKELY(x)       (x)

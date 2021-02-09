@@ -15,10 +15,10 @@ typedef boost::shared_ptr<PollManager> PollManagerPtr;
 class ConnectionManager;
 typedef boost::shared_ptr<ConnectionManager> ConnectionManagerPtr;
 
-class ROSCPP_DECL ConnectionManager
+class ROSCPP_DECL ConnectionManager : public SingletonPtr<ConnectionManager>
 {
 public:
-  static const ConnectionManagerPtr& instance();
+  //static const ConnectionManagerPtr& instance();
 
   ConnectionManager();
   ~ConnectionManager();

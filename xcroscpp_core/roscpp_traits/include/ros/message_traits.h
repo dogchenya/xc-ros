@@ -330,6 +330,6 @@ inline bool hasHeader()
 }
 
 } // namespace message_traits
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSLIB_MESSAGE_TRAITS_H

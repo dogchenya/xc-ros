@@ -64,6 +64,6 @@ ROSCPP_DECL std::string parentNamespace(const std::string& name);
 
 } // namespace names
 
-} // namespace ros
+} // namespace xcros
 
 #endif

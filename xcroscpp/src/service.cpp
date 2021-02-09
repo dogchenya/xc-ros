@@ -18,7 +18,7 @@ bool service::exists(const std::string& service_name, bool print_failure_reason)
   std::string host;
   uint32_t port;
 
-  if (ServiceManager::instance()->lookupService(mapped_name, host, port))
+  if (ServiceManager::Instance()->lookupService(mapped_name, host, port))
   {
     TransportTCPPtr transport(boost::make_shared<TransportTCP>(static_cast<xcros::PollSet*>(NULL), TransportTCP::SYNCHRONOUS));
 

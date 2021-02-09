@@ -1,6 +1,8 @@
 #ifndef _XCROSCPP_SERVICE_MANAGER_H_
 #define _XCROSCPP_SERVICE_MANAGER_H_
 
+#include "xcroscommon.h"
+
 #include "forwards.h"
 #include "ros/xcroscpp_common.h"
 #include "advertise_service_options.h"
@@ -18,16 +20,16 @@ typedef boost::shared_ptr<ServiceManager> ServiceManagerPtr;
 class PollManager;
 typedef boost::shared_ptr<PollManager> PollManagerPtr;
 
-class XMLRPCManager;
-typedef boost::shared_ptr<XMLRPCManager> XMLRPCManagerPtr;
+class RobotRPCManager;
+typedef boost::shared_ptr<RobotRPCManager> RobotRPCManagerPtr;
 
 class ConnectionManager;
 typedef boost::shared_ptr<ConnectionManager> ConnectionManagerPtr;
 
-class ROSCPP_DECL ServiceManager
+class ROSCPP_DECL ServiceManager : public SingletonPtr<ServiceManager>
 {
 public:
-  static const ServiceManagerPtr& instance();
+  //static const ServiceManagerPtr& instance();
 
   ServiceManager();
   ~ServiceManager();
@@ -110,9 +112,9 @@ private:
 
   PollManagerPtr poll_manager_;
   ConnectionManagerPtr connection_manager_;
-  XMLRPCManagerPtr xmlrpc_manager_;
+  RobotRPCManagerPtr robotrpc_manager_;
 };
 
-} // namespace ros
+} // namespace xcros
 
 #endif

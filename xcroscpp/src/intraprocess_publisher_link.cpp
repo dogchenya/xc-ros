@@ -121,4 +121,4 @@ void IntraProcessPublisherLink::getPublishTypes(bool& ser, bool& nocopy, const s
   }
 }
 
-} // namespace ros
+} // namespace xcros

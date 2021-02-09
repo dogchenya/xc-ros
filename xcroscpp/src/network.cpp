@@ -193,4 +193,4 @@ void init(const M_string& remappings)
 
 } // namespace network
 
-} // namespace ros
+} // namespace xcros

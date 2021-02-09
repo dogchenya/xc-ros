@@ -45,6 +45,6 @@ private:
 };
 typedef boost::shared_ptr<IntraProcessPublisherLink> IntraProcessPublisherLinkPtr;
 
-} // namespace ros
+} // namespace xcros
 
 #endif // _XCROSCPP_INTRAPROCESS_PUBLISHER_LINK_H_

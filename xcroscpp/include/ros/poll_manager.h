@@ -20,7 +20,7 @@ namespace xcros
     typedef boost::signals2::signal<void(void)> VoidSignal;
     typedef boost::function<void(void)> VoidFunc;
 
-    class PollManager : Singleton<PollManager>
+    class PollManager : public SingletonPtr<PollManager>
     {
     public:
         PollManager();

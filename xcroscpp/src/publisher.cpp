@@ -25,7 +25,7 @@ void Publisher::Impl::unadvertise()
   if (!unadvertised_)
   {
     unadvertised_ = true;
-    TopicManager::instance()->unadvertise(topic_, callbacks_);
+    TopicManager::Instance()->unadvertise(topic_, callbacks_);
     node_handle_.reset();
   }
 }
@@ -63,14 +63,14 @@ void Publisher::publish(const boost::function<SerializedMessage(void)>& serfunc,
     return;
   }
 
-  TopicManager::instance()->publish(impl_->topic_, serfunc, m);
+  TopicManager::Instance()->publish(impl_->topic_, serfunc, m);
 }
 
 void Publisher::incrementSequence() const
 {
   if (impl_ && impl_->isValid())
   {
-    TopicManager::instance()->incrementSequence(impl_->topic_);
+    TopicManager::Instance()->incrementSequence(impl_->topic_);
   }
 }
 
@@ -97,7 +97,7 @@ uint32_t Publisher::getNumSubscribers() const
 {
   if (impl_ && impl_->isValid())
   {
-    return TopicManager::instance()->getNumSubscribers(impl_->topic_);
+    return TopicManager::Instance()->getNumSubscribers(impl_->topic_);
   }
 
   return 0;
@@ -107,7 +107,7 @@ bool Publisher::isLatched() const {
   PublicationPtr publication_ptr;
   if (impl_ && impl_->isValid()) {
     publication_ptr =
-      TopicManager::instance()->lookupPublication(impl_->topic_);
+      TopicManager::Instance()->lookupPublication(impl_->topic_);
   } else {
     ROS_ASSERT_MSG(false, "Call to isLatched() on an invalid Publisher");
     throw xcros::Exception("Call to isLatched() on an invalid Publisher");
@@ -120,4 +120,4 @@ bool Publisher::isLatched() const {
   }
 }
 
-} // namespace ros
+} // namespace xcros

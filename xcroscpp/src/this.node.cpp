@@ -1,158 +1,158 @@
 
-// #include <cstdio>
-// #include "this_node.h"
-// #include "ros/names.h"
-// #include "ros/topic_manager.h"
-// #include "ros/init.h"
+#include <cstdio>
+#include "ros/this_node.h"
+#include "ros/names.h"
+#include "ros/topic_manager.h"
+#include "ros/init.h"
 
-// #ifdef _MSC_VER
-//   #ifdef snprintf
-//     #undef snprintf
-//   #endif
-//   #define snprintf _snprintf_s
-// #endif
+#ifdef _MSC_VER
+  #ifdef snprintf
+    #undef snprintf
+  #endif
+  #define snprintf _snprintf_s
+#endif
 
-// namespace xcros
-// {
+namespace xcros
+{
 
-// namespace names
-// {
-// void init(const M_string& remappings);
-// }
+namespace names
+{
+void init(const M_string& remappings);
+}
 
-// namespace this_node
-// {
+namespace this_node
+{
 
-// // collect all static variables into a singleton to ensure proper destruction order
-// class ThisNode
-// {
-//   std::string name_;
-//   std::string namespace_;
+// collect all static variables into a singleton to ensure proper destruction order
+class ThisNode
+{
+  std::string name_;
+  std::string namespace_;
 
-//   ThisNode() : name_("empty") {}
+  ThisNode() : name_("empty") {}
 
-// public:
-//   static ThisNode& instance()
-//   {
-//     static ThisNode singleton;
-//     return singleton;
-//   }
+public:
+  static ThisNode& instance()
+  {
+    static ThisNode singleton;
+    return singleton;
+  }
 
-//   const std::string& getName() const
-//   {
-//     return name_;
-//   }
+  const std::string& getName() const
+  {
+    return name_;
+  }
 
-//   const std::string& getNamespace() const
-//   {
-//     return namespace_;
-//   }
+  const std::string& getNamespace() const
+  {
+    return namespace_;
+  }
 
-//   void init(const std::string& name, const M_string& remappings, uint32_t options);
-// };
+  void init(const std::string& name, const M_string& remappings, uint32_t options);
+};
 
 
-// const std::string& getName()
-// {
-//   return ThisNode::instance().getName();
-// }
+const std::string& getName()
+{
+  return ThisNode::instance().getName();
+}
 
-// const std::string& getNamespace()
-// {
-//   return ThisNode::instance().getNamespace();
-// }
+const std::string& getNamespace()
+{
+  return ThisNode::instance().getNamespace();
+}
 
-// void getAdvertisedTopics(V_string& topics)
-// {
-//   TopicManager::instance()->getAdvertisedTopics(topics);
-// }
+void getAdvertisedTopics(V_string& topics)
+{
+  TopicManager::Instance()->getAdvertisedTopics(topics);
+}
 
-// void getSubscribedTopics(V_string& topics)
-// {
-//   TopicManager::instance()->getSubscribedTopics(topics);
-// }
+void getSubscribedTopics(V_string& topics)
+{
+  TopicManager::Instance()->getSubscribedTopics(topics);
+}
 
-// void init(const std::string& name, const M_string& remappings, uint32_t options)
-// {
-//   ThisNode::instance().init(name, remappings, options);
-// }
+void init(const std::string& name, const M_string& remappings, uint32_t options)
+{
+  ThisNode::instance().init(name, remappings, options);
+}
 
-// void ThisNode::init(const std::string& name, const M_string& remappings, uint32_t options)
-// {
-//   char *ns_env = NULL;
-// #ifdef _MSC_VER
-//   _dupenv_s(&ns_env, NULL, "ROS_NAMESPACE");
-// #else
-//   ns_env = getenv("ROS_NAMESPACE");
-// #endif
+void ThisNode::init(const std::string& name, const M_string& remappings, uint32_t options)
+{
+  char *ns_env = NULL;
+#ifdef _MSC_VER
+  _dupenv_s(&ns_env, NULL, "ROS_NAMESPACE");
+#else
+  ns_env = getenv("ROS_NAMESPACE");
+#endif
 
-//   if (ns_env)
-//   {
-//     namespace_ = ns_env;
-// #ifdef _MSC_VER
-//     free(ns_env);
-// #endif
-//   }
+  if (ns_env)
+  {
+    namespace_ = ns_env;
+#ifdef _MSC_VER
+    free(ns_env);
+#endif
+  }
 
-//   if (name.empty()) {
-//     throw InvalidNameException("The node name must not be empty");
-//   }
+  if (name.empty()) {
+    throw InvalidNameException("The node name must not be empty");
+  }
 
-//   name_ = name;
+  name_ = name;
 
-//   bool disable_anon = false;
-//   M_string::const_iterator it = remappings.find("__name");
-//   if (it != remappings.end())
-//   {
-//     name_ = it->second;
-//     disable_anon = true;
-//   }
+  bool disable_anon = false;
+  M_string::const_iterator it = remappings.find("__name");
+  if (it != remappings.end())
+  {
+    name_ = it->second;
+    disable_anon = true;
+  }
 
-//   it = remappings.find("__ns");
-//   if (it != remappings.end())
-//   {
-//     namespace_ = it->second;
-//   }
+  it = remappings.find("__ns");
+  if (it != remappings.end())
+  {
+    namespace_ = it->second;
+  }
 
-//   namespace_ = names::clean(namespace_);
-//   if (namespace_.empty() || (namespace_[0] != '/'))
-//   {
-//     namespace_ = "/" + namespace_;
-//   }
+  namespace_ = names::clean(namespace_);
+  if (namespace_.empty() || (namespace_[0] != '/'))
+  {
+    namespace_ = "/" + namespace_;
+  }
 
-//   std::string error;
-//   if (!names::validate(namespace_, error))
-//   {
-//     std::stringstream ss;
-//     ss << "Namespace [" << namespace_ << "] is invalid: " << error;
-//     throw InvalidNameException(ss.str());
-//   }
+  std::string error;
+  if (!names::validate(namespace_, error))
+  {
+    std::stringstream ss;
+    ss << "Namespace [" << namespace_ << "] is invalid: " << error;
+    throw InvalidNameException(ss.str());
+  }
 
-//   // names must be initialized here, because it requires the namespace to already be known so that it can properly resolve names.
-//   // It must be done before we resolve g_name, because otherwise the name will not get remapped.
-//   names::init(remappings);
+  // names must be initialized here, because it requires the namespace to already be known so that it can properly resolve names.
+  // It must be done before we resolve g_name, because otherwise the name will not get remapped.
+  names::init(remappings);
 
-//   if (name_.find("/") != std::string::npos)
-//   {
-//     throw InvalidNodeNameException(name_, "node names cannot contain /");
-//   }
-//   if (name_.find("~") != std::string::npos)
-//   {
-//     throw InvalidNodeNameException(name_, "node names cannot contain ~");
-//   }
+  if (name_.find("/") != std::string::npos)
+  {
+    throw InvalidNodeNameException(name_, "node names cannot contain /");
+  }
+  if (name_.find("~") != std::string::npos)
+  {
+    throw InvalidNodeNameException(name_, "node names cannot contain ~");
+  }
 
-//   name_ = names::resolve(namespace_, name_);
+  name_ = names::resolve(namespace_, name_);
 
-//   if (options & init_options::AnonymousName && !disable_anon)
-//   {
-//     char buf[200];
-//     snprintf(buf, sizeof(buf), "_%llu", (unsigned long long)WallTime::now().toNSec());
-//     name_ += buf;
-//   }
+  if (options & init_options::AnonymousName && !disable_anon)
+  {
+    char buf[200];
+    snprintf(buf, sizeof(buf), "_%llu", (unsigned long long)WallTime::now().toNSec());
+    name_ += buf;
+  }
 
-//   ros::console::setFixedFilterToken("node", name_);
-// }
+  xcros::console::setFixedFilterToken("node", name_);
+}
 
-// } // namespace this_node
+} // namespace this_node
 
-// } // namespace ros
+} // namespace xcros

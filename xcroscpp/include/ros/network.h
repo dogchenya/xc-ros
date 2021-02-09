@@ -19,6 +19,6 @@ uint16_t getTCPROSPort();
 
 } // namespace network
 
-} // namespace ros
+} // namespace xcros
 
 #endif

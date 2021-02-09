@@ -856,6 +856,6 @@ struct PreDeserialize
 
 } // namespace serialization
 
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSCPP_SERIALIZATION_H

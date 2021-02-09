@@ -180,7 +180,7 @@ inline void close_signal_pair(signal_fd_t signal_pair[2]) {
 	}
 #endif
 
-} // namespace ros
+} // namespace xcros
 
 #endif /* ROSCPP_IO_H_ */
 

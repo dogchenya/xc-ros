@@ -82,6 +82,6 @@ inline const char* datatype(const M& m)
 }
 
 } // namespace service_traits
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSCPP_SERVICE_TRAITS_H

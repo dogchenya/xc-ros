@@ -10,6 +10,7 @@
 
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/recursive_mutex.hpp>
+#include <boost/bind.hpp>
 
 namespace xcros
 {
@@ -33,11 +34,11 @@ typedef boost::shared_ptr<ConnectionManager> ConnectionManagerPtr;
 class SubscriptionCallbackHelper;
 typedef boost::shared_ptr<SubscriptionCallbackHelper> SubscriptionCallbackHelperPtr;
 
-class ROSCPP_DECL TopicManager
+class ROSCPP_DECL TopicManager : public SingletonPtr<TopicManager>
 {
 
-public:
-  static const TopicManagerPtr& instance();
+// public:
+//   static const TopicManagerPtr& instance();
 
 public:
     TopicManager();
@@ -206,7 +207,7 @@ private:
 
     PollManagerPtr poll_manager_;
     ConnectionManagerPtr connection_manager_;
-    XMLRPCManagerPtr xmlrpc_manager_;
+    RobotRPCManagerPtr robotrpc_manager_;
 };
 
 }

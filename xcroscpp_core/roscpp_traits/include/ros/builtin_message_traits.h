@@ -32,7 +32,7 @@ ROSLIB_CREATE_SIMPLE_TRAITS(Duration)
 template<> struct IsFixedSize<bool> : public TrueType {};
 
 } // namespace message_traits
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSLIB_BUILTIN_MESSAGE_TRAITS_H
 

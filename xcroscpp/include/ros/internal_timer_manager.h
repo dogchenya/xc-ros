@@ -15,6 +15,6 @@ typedef boost::shared_ptr<InternalTimerManager> InternalTimerManagerPtr;
 ROSCPP_DECL void initInternalTimerManager();
 ROSCPP_DECL InternalTimerManagerPtr getInternalTimerManager();
 
-} // namespace ros
+} // namespace xcros
 
 #endif // _XCROSCPP_INTERNAL_TIMER_MANAGER_H

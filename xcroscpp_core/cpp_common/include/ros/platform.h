@@ -31,7 +31,7 @@ inline bool get_environment_variable(std::string &str, const char* environment_v
 	}
 }
 
-} // namespace ros
+} // namespace xcros
 
 
 #endif

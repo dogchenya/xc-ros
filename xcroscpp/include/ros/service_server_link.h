@@ -10,6 +10,8 @@
 
 #include <queue>
 
+#include "ros/serialized_message.h"
+
 namespace xcros
 {
 class Header;
@@ -120,6 +122,6 @@ private:
 };
 typedef boost::shared_ptr<ServiceServerLink> ServiceServerLinkPtr;
 
-} // namespace ros
+} // namespace xcros
 
 #endif // _XCROSCPP_SERVICE_SERVER_LINK_H_

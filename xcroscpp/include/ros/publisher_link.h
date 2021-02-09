@@ -75,6 +75,6 @@ protected:
   std::string md5sum_;
 };
 
-} // namespace ros
+} // namespace xcros
 
 #endif // _XCROSCPP_PUBLISHER_LINK_H_

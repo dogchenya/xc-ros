@@ -232,6 +232,6 @@ private:
 };
 typedef boost::shared_ptr<Connection> ConnectionPtr;
 
-} // namespace ros
+} // namespace xcros
 
 #endif // ROSCPP_CONNECTION_H

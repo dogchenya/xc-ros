@@ -13,6 +13,9 @@
 #endif
 #include <signal.h>
 
+#include "boost/shared_ptr.hpp"
+#include <boost/make_shared.hpp>
+
 namespace xcros
 {
     template<typename T>
@@ -38,25 +41,25 @@ namespace xcros
         static T volatile m_instance; //2.为什么加上volatile关键字 --> 确保多线程每次从内存中取值，而不是从寄存器中取值
     };
 
-    // template<typename T>
-    // class SingletonPtr
-    // {
-    // public:
-    //     static T& Instance()
-    //     {
-    //         static T m_instance = boost::make_shared<T>();
-    //         return m_instance;
-    //     }
+    template<typename T>
+    class SingletonPtr
+    {
+    public:
+        static boost::shared_ptr<T>& Instance()
+        {
+            static boost::shared_ptr<T> m_instance = boost::make_shared<T>();
+            return m_instance;
+        }
 
-    // protected:
-    //     SingletonPtr(void){};
-    //     virtual ~SingletonPtr(){};
+    protected:
+        SingletonPtr(void){};
+        virtual ~SingletonPtr(){};
 
-    // private:
-    //     SingletonPtr(const SingletonPtr& rhs){}
-    //     SingletonPtr& operator = (const SingletonPtr& rhs){}
+    private:
+        SingletonPtr(const SingletonPtr& rhs){}
+        SingletonPtr& operator = (const SingletonPtr& rhs){}
 
-    // }
+    };
 
 
 

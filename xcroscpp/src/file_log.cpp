@@ -97,4 +97,4 @@ void init(const M_string& remappings)
 
 } // namespace file_log
 
-} // namespace ros
+} // namespace xcros
