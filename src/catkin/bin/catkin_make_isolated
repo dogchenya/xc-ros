@@ -17,7 +17,6 @@ from catkin.builder import extract_jobs_flags
 
 
 def parse_args(args=None):
-    #取 1 后面所以列表
     args = sys.argv[1:] if args is None else args
     args, cmake_args, make_args, catkin_make_args = extract_cmake_and_make_and_catkin_make_arguments(args)
 
