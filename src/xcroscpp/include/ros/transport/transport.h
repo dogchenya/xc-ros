@@ -19,7 +19,7 @@ class Transport : public boost::enable_shared_from_this<Transport>
 {
 
 public:
-    Transport(){}
+    Transport();
     virtual ~Transport() {}
 
     virtual int32_t read(uint8_t* buffer, uint32_t size) = 0;

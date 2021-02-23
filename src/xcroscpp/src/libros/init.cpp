@@ -14,7 +14,7 @@
 #include "ros/subscribe_options.h"
 #include "ros/transport/transport_tcp.h"
 #include "ros/internal_timer_manager.h"
-#include "RobotRpcSocket.h"
+#include "rpcpp/RobotRpcSocket.h"
 
 
 #include "ros/poll_manager.h"

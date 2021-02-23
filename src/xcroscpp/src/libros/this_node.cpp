@@ -50,7 +50,8 @@ namespace this_node
 {
 
 // collect all static variables into a singleton to ensure proper destruction order
-class ThisNode : public Singleton<ThisNode>
+class ThisNode 
+// : public Singleton<ThisNode>
 {
   std::string name_;
   std::string namespace_;
@@ -58,11 +59,11 @@ class ThisNode : public Singleton<ThisNode>
   ThisNode() : name_("empty") {}
 
 public:
-  // static ThisNode& instance()
-  // {
-  //   static ThisNode singleton;
-  //   return singleton;
-  // }
+  static ThisNode& Instance()
+  {
+    static ThisNode singleton;
+    return singleton;
+  }
 
   const std::string& getName() const
   {
