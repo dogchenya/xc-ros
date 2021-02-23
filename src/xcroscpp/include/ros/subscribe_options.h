@@ -2,7 +2,7 @@
 #define _XCROSCPP_SUBSCRIBE_OPTIONS_H_
 
 #include "ros/forwards.h"
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "ros/transport_hints.h"
 #include "ros/message_traits.h"
 #include "ros/subscription_callback_helper.h"

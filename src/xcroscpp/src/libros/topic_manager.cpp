@@ -14,7 +14,7 @@
 #include "ros/file_log.h"
 #include "ros/subscribe_options.h"
 
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #include <ros/console.h>
 

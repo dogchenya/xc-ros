@@ -1,8 +1,8 @@
 #ifndef _XCROSCPP_MaSTER_H_
 #define _XCROSCPP_MaSTER_H_
 
-#include "forwards.h"
-#include "XmlRpcValue.h"
+#include "ros/forwards.h"
+#include "rpcpp/XmlRpcValue.h"
 #include "ros/xcroscpp_common.h"
 
 namespace xcros

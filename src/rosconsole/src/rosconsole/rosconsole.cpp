@@ -731,4 +731,4 @@ bool set_logger_level(const std::string& name, levels::Level level)
 }
 
 } // namespace console
-} // namespace ros
+} // namespace xcros

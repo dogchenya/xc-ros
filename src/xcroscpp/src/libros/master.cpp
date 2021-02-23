@@ -7,7 +7,7 @@
 #include <ros/console.h>
 #include <ros/assert.h>
 
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 
 namespace xcros

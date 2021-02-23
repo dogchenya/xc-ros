@@ -11,7 +11,7 @@
 
 \section codeapi Code API
 
-- Time-related: ros::Time, ros::Duration, ros::Rate, ros::WallTime, ros::WallDuration, ros::WallRate.  Also see the <a href="http://ros.org/wiki/roscpp/Overview/Time">roscpp Time overview</a>.
+- Time-related: xcros::Time, xcros::Duration, xcros::Rate, xcros::WallTime, xcros::WallDuration, xcros::WallRate.  Also see the <a href="http://ros.org/wiki/roscpp/Overview/Time">roscpp Time overview</a>.
 - Package-related: ros::package namespace
 - Debug-related: ros::debug namespace
 

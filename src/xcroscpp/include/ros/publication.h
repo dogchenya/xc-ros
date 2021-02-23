@@ -5,7 +5,7 @@
 #include "ros/advertise_options.h"
 #include "ros/xcroscpp_common.h"
 #include "ros/serialized_message.h"
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #include <boost/thread/mutex.hpp>
 

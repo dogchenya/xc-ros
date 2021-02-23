@@ -58,4 +58,4 @@ void (*function_print)(void*, ::xcros::console::Level, const char*, const char*,
 
 } // namespace backend
 } // namespace console
-} // namespace ros
+} // namespace xcros

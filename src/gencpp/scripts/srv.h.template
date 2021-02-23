@@ -58,7 +58,7 @@ typedef Response ResponseType;
 @# Service-Traits
 @###############################################
 
-namespace ros
+namespace xcros
 {
 namespace service_traits
 {
@@ -136,6 +136,6 @@ struct DataType< @(cpp_full_name)Response>
 };
 
 } // namespace service_traits
-} // namespace ros
+} // namespace xcros
 
 #endif // @(spec.package.upper())_MESSAGE_@(spec.short_name.upper())_H

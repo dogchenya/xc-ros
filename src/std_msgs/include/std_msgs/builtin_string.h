@@ -31,7 +31,7 @@
 #include "trait_macros.h"
 #include <std_msgs/String.h>
 
-namespace ros
+namespace xcros
 {
 namespace message_traits
 {

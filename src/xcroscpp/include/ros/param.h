@@ -30,7 +30,7 @@
 
 #include "ros/forwards.h"
 #include "ros/xcroscpp_common.h"
-#include "XmlRpcValue.h"
+#include "rpcpp/XmlRpcValue.h"
 
 #include <vector>
 #include <map>

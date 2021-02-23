@@ -22,7 +22,7 @@
 
 #include <boost/bind.hpp>
 
-#include <XmlRpcValue.h>
+#include "rpcpp/XmlRpcValue.h"
 
 namespace xcros
 {

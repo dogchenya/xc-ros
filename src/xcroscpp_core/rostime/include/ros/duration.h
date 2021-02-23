@@ -55,7 +55,7 @@ class Rate;
 /**
  * \brief Duration representation for use with the Time class.
  * Duration 持续时间
- * ros::DurationBase provides most of its functionality.
+ * xcros::DurationBase provides most of its functionality.
  */
 class ROSTIME_DECL Duration : public DurationBase<Duration>
 {
@@ -83,7 +83,7 @@ extern ROSTIME_DECL const Duration DURATION_MIN;
 /**
  * \brief Duration representation for use with the WallTime class.
  *
- * ros::DurationBase provides most of its functionality.
+ * xcros::DurationBase provides most of its functionality.
  */
 class ROSTIME_DECL WallDuration : public DurationBase<WallDuration>
 {

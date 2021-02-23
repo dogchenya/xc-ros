@@ -1,9 +1,9 @@
 #ifndef _XCROSCPP_SERVICE_MANAGER_H_
 #define _XCROSCPP_SERVICE_MANAGER_H_
 
-#include "xcroscommon.h"
+#include "common/xcroscommon.h"
 
-#include "forwards.h"
+#include "ros/forwards.h"
 #include "ros/xcroscpp_common.h"
 #include "advertise_service_options.h"
 #include "service_client_options.h"

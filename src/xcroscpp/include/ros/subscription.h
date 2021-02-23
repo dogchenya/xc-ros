@@ -8,7 +8,7 @@
 #include "ros/transport_hints.h"
 #include "ros/robotrpc_manager.h"
 #include "ros/statistics.h"
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #include <boost/thread.hpp>
 #include <boost/shared_ptr.hpp>

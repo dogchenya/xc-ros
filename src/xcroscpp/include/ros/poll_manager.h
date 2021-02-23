@@ -8,7 +8,7 @@
 #include <boost/thread/recursive_mutex.hpp>
 #include <boost/thread/thread.hpp>
 
-#include "xcroscommon.h"
+#include "common/xcroscommon.h"
 #include "ros/io.h"
 #include "ros/poll_set.h"
 
@@ -16,7 +16,7 @@
 namespace xcros
 {
     class PollMangaer;
-    typedef std::shared_ptr<PollMangaer> PollMangaerPtr;
+    typedef boost::shared_ptr<PollMangaer> PollMangaerPtr;
     typedef boost::signals2::signal<void(void)> VoidSignal;
     typedef boost::function<void(void)> VoidFunc;
 
@@ -43,7 +43,7 @@ namespace xcros
         VoidSignal poll_signal_;
         boost::recursive_mutex signal_mutex_;
 
-        std::thread thread_;
+        boost::thread thread_;
     };
 }
 

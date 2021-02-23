@@ -372,4 +372,4 @@ void shutdown()
 
 } // namespace impl
 } // namespace console
-} // namespace ros
+} // namespace xcros

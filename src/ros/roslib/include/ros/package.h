@@ -76,7 +76,7 @@
 #  define ROSLIB_DECL
 #endif
 
-namespace ros
+namespace xcros
 {
 namespace package
 {
@@ -147,6 +147,6 @@ ROSLIB_DECL void getPlugins(
 ROS_DEPRECATED ROSLIB_DECL void getPlugins(const std::string& package, const std::string& attribute, M_string& plugins, bool force_recrawl=false);
 
 } // namespace package
-} // namespace ros
+} // namespace xcros
 
 #endif

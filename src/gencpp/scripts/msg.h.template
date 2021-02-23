@@ -168,7 +168,7 @@ typedef boost::shared_ptr< @(cpp_namespace+spec.short_name) const> @(spec.short_
 template<typename ContainerAllocator>
 std::ostream& operator<<(std::ostream& s, const @(cpp_full_name_with_alloc) & v)
 {
-ros::message_operations::Printer< @(cpp_full_name_with_alloc) >::stream(s, "", v);
+xcros::message_operations::Printer< @(cpp_full_name_with_alloc) >::stream(s, "", v);
 return s;
 }
 
@@ -176,7 +176,7 @@ return s;
 } // namespace @(spec.package)
 
 @# Message Traits
-namespace ros
+namespace xcros
 {
 namespace message_traits
 {
@@ -242,10 +242,10 @@ if trait_class == 'MD5Sum':
 
 @# End of traits
 } // namespace message_traits
-} // namespace ros
+} // namespace xcros
 
 @# Serialization
-namespace ros
+namespace xcros
 {
 namespace serialization
 {
@@ -276,10 +276,10 @@ namespace serialization
 @[end if]@
 
 } // namespace serialization
-} // namespace ros
+} // namespace xcros
 
 @# Message Operations
-namespace ros
+namespace xcros
 {
 namespace message_operations
 {
@@ -330,6 +330,6 @@ for field in spec.parsed_fields():
 @[end if]@
 
 } // namespace message_operations
-} // namespace ros
+} // namespace xcros
 
 #endif // @(spec.package.upper())_MESSAGE_@(spec.short_name.upper())_H

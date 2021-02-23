@@ -97,7 +97,7 @@ namespace xcros
             uint64_t id;
             boost::shared_mutex calling_rw_mutex;
         };
-        typedef std::shared_ptr<IDInfo> IDInfoPtr;
+        typedef boost::shared_ptr<IDInfo> IDInfoPtr;
         typedef std::map<uint64_t, IDInfoPtr> M_IDInfo;
 
         IDInfoPtr getIDInfo(uint64_t id);
@@ -138,7 +138,7 @@ namespace xcros
 
     };
 
-    typedef std::shared_ptr<CallbackQueue> CallbackQueuePtr;
+    typedef boost::shared_ptr<CallbackQueue> CallbackQueuePtr;
 }
 
 #endif

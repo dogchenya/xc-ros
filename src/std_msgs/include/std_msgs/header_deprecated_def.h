@@ -150,7 +150,7 @@ std::ostream& operator<<(std::ostream& s, const  ::roslib::Header_<ContainerAllo
 
 } // namespace roslib
 
-namespace ros
+namespace xcros
 {
 namespace message_traits
 {
@@ -203,9 +203,9 @@ string frame_id\n\
 };
 
 } // namespace message_traits
-} // namespace ros
+} // namespace xcros
 
-namespace ros
+namespace xcros
 {
 namespace serialization
 {
@@ -222,9 +222,9 @@ template<class ContainerAllocator> struct Serializer< ::roslib::Header_<Containe
   ROS_DECLARE_ALLINONE_SERIALIZER;
 }; // struct Header_
 } // namespace serialization
-} // namespace ros
+} // namespace xcros
 
-namespace ros
+namespace xcros
 {
 namespace message_operations
 {
@@ -237,7 +237,7 @@ struct Printer< ::roslib::Header_<ContainerAllocator> >
     s << indent << "seq: ";
     Printer<uint32_t>::stream(s, indent + "  ", v.seq);
     s << indent << "stamp: ";
-    Printer<ros::Time>::stream(s, indent + "  ", v.stamp);
+    Printer<xcros::Time>::stream(s, indent + "  ", v.stamp);
     s << indent << "frame_id: ";
     Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.frame_id);
   }
@@ -245,5 +245,5 @@ struct Printer< ::roslib::Header_<ContainerAllocator> >
 
 
 } // namespace message_operations
-} // namespace ros
+} // namespace xcros
 

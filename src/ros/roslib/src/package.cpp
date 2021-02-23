@@ -36,7 +36,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/thread/mutex.hpp>
 
-namespace ros
+namespace xcros
 {
 namespace package
 {
@@ -164,4 +164,4 @@ void getPlugins(const std::string& package, const std::string& attribute, M_stri
 }
 
 } // namespace package
-} // namespace ros
+} // namespace xcros

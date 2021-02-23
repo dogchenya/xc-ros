@@ -3,7 +3,7 @@
 
 #include "ros/service_callback_helper.h"
 #include "ros/xcroscpp_common.h"
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #include <boost/thread/mutex.hpp>
 

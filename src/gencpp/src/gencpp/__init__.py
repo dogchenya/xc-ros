@@ -51,8 +51,8 @@ MSG_TYPE_TO_CPP = {'byte': 'int8_t',
                    'float32': 'float',
                    'float64': 'double',
                    'string': 'std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > ',
-                   'time': 'ros::Time',
-                   'duration': 'ros::Duration'}
+                   'time': 'xcros::Time',
+                   'duration': 'xcros::Duration'}
 
 #used
 def msg_type_to_cpp(type):

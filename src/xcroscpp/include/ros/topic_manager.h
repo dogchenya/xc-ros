@@ -2,11 +2,11 @@
 #define _XCROSCPP_TOPIC_MANAGER_H_
 
 #include "ros/forwards.h"
-#include "xcroscommon.h"
+#include "common/xcroscommon.h"
 #include "ros/xcroscpp_common.h"
 #include "ros/serialization.h"
 #include "rosout_appender.h"
-#include "XmlRpcValue.h"
+#include "rpcpp/XmlRpcValue.h"
 
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/recursive_mutex.hpp>

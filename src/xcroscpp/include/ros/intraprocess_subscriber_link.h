@@ -2,7 +2,7 @@
 #define _XCROSCPP_INTRAPROCESS_SUBSCRIBER_LINK_H_
 
 
-#include "subscriber_link.h"
+#include "ros/subscriber_link.h"
 #include "ros/xcroscpp_common.h"
 
 #include <boost/thread/recursive_mutex.hpp>

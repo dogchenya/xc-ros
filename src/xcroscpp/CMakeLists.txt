@@ -11,16 +11,16 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package_xml()
 # split version in parts and pass to extra file
-string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")
-list(LENGTH roscpp_VERSION_LIST _count)
-if(NOT _count EQUAL 3)
-  message(FATAL_ERROR "roscpp version '${roscpp_VERSION}' does not match 'MAJOR.MINOR.PATCH' pattern")
-endif()
-list(GET roscpp_VERSION_LIST 0 roscpp_VERSION_MAJOR)
-list(GET roscpp_VERSION_LIST 1 roscpp_VERSION_MINOR)
-list(GET roscpp_VERSION_LIST 2 roscpp_VERSION_PATCH)
+# string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")
+# list(LENGTH roscpp_VERSION_LIST _count)
+# if(NOT _count EQUAL 3)
+#   message(FATAL_ERROR "roscpp version '${roscpp_VERSION}' does not match 'MAJOR.MINOR.PATCH' pattern")
+# endif()
+# list(GET roscpp_VERSION_LIST 0 roscpp_VERSION_MAJOR)
+# list(GET roscpp_VERSION_LIST 1 roscpp_VERSION_MINOR)
+# list(GET roscpp_VERSION_LIST 2 roscpp_VERSION_PATCH)
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ros/common.h.in ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ros/xcroscpp_common.h ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/xcroscpp_common.h)
 
 find_package(Boost REQUIRED COMPONENTS chrono filesystem signals system)
 
@@ -54,7 +54,7 @@ endif()
 catkin_package(
   INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros
   LIBRARIES xcroscpp ${PTHREAD_LIB}
-  CATKIN_DEPENDS cpp_common message_runtime rosconsole roscpp_serialization roscpp_traits rosgraph_msgs rostime std_msgs xmlrpcpp
+  CATKIN_DEPENDS common cpp_common message_runtime rosconsole roscpp_serialization roscpp_traits rosgraph_msgs rostime std_msgs robotrpcpp
   DEPENDS Boost
 )
 
@@ -98,21 +98,10 @@ add_library(xcroscpp
   src/libros/intraprocess_subscriber_link.cpp
   src/libros/intraprocess_publisher_link.cpp
   src/libros/callback_queue.cpp
-  src/libros/service_server_link.cppINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
-install(DIRECTORY include/
-  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
-  FILES_MATCHING PATTERN "*.h")
-install(FILES ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h
-  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros)
-# install legacy infrastructure needed by rosbuild
-install(FILES rosbuild/xcroscpp.cmake
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rosbuild)
-catkin_install_python(PROGRAMS
-  rosbuild/scripts/genmsg_cpp.py
-  rosbuild/scripts/gensrv_cpp.py
-  rosbuild/scripts/msg_gen.py
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rosbuild/scripts)
+  src/libros/service_server_link.cpp
+  src/libros/service_client.cpp
+  src/libros/node_handle.cpp
+  src/libros/connection_manager.cpp
   src/libros/file_log.cpp
   src/libros/transport/transport.cpp
   src/libros/transport/transport_udp.cpp
@@ -133,7 +122,7 @@ catkin_install_python(PROGRAMS
   src/libros/service.cpp
   src/libros/this_node.cpp
   src/libros/steady_timer.cpp
-  )
+)
 
 add_dependencies(xcroscpp ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
@@ -150,7 +139,7 @@ install(TARGETS xcroscpp
 install(DIRECTORY include/
   DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
   FILES_MATCHING PATTERN "*.h")
-install(FILES ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/common.h
+install(FILES ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/xcroscpp_common.h
   DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros)
 # install legacy infrastructure needed by rosbuild
 install(FILES rosbuild/xcroscpp.cmake

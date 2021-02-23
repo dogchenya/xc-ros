@@ -110,5 +110,5 @@ const std::string& PublisherLink::getMD5Sum()
   return md5sum_;
 }
 
-} // namespace ros
+} // namespace xcros
 

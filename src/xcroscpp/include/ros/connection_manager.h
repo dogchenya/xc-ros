@@ -1,6 +1,8 @@
-#include "forwards.h"
-#include "connection.h"
+#include "ros/forwards.h"
+#include "ros/connection.h"
 #include "ros/xcroscpp_common.h"
+
+#include "common/xcroscommon.h"
 
 #include <boost/thread/mutex.hpp>
 #include <boost/signals2/connection.hpp>

@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
   }
   int port = atoi(argv[2]);
 
-  //XmlRpc::setVerbosity(5);
+  //RobotRpc::setVerbosity(5);
   RobotRpcClient c(argv[1], port);
 
   XmlRpcValue noArgs, result;

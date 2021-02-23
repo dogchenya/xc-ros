@@ -101,7 +101,7 @@ struct SubscriberCallbacks
 typedef boost::shared_ptr<SubscriberCallbacks> SubscriberCallbacksPtr;
 
 /**
- * \brief Structure passed as a parameter to the callback invoked by a ros::Timer
+ * \brief Structure passed as a parameter to the callback invoked by a xcros::Timer
  */
 struct TimerEvent
 {

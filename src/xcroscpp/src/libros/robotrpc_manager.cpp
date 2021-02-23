@@ -7,7 +7,7 @@
 #include <mutex>
 #include <thread> 
 
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 #include "ros/duration.h"
 #include "ros/network.h"
 
@@ -100,7 +100,7 @@ namespace xcros
     ss << "http://" << network::getHost() << ":" << port_ << "/";
     uri_ = ss.str();
 
-    server_thread_ = std::thread(std::bind(&RobotRPCManager::serverThreadFunc, this));
+    server_thread_ = boost::thread(boost::bind(&RobotRPCManager::serverThreadFunc, this));
     }
 
     void RobotRPCManager::shutdown()
@@ -117,7 +117,7 @@ namespace xcros
 
     // kill the last few clients that were started in the shutdown process
     {
-        std::lock_guard<std::mutex> lock(clients_mutex_);
+        boost::mutex::scoped_lock lock(clients_mutex_);
 
         for (V_CachedRobotRpcClient::iterator i = clients_.begin();
             i != clients_.end();)
@@ -142,7 +142,7 @@ namespace xcros
         xcros::WallDuration(0.01).sleep();
     }
 
-    std::lock_guard<std::mutex> lock(functions_mutex_);
+    boost::mutex::scoped_lock lock(functions_mutex_);
     functions_.clear();
 
     {
@@ -157,12 +157,12 @@ namespace xcros
     connections_.clear();
 
     {
-        std::lock_guard<std::mutex> lock(added_connections_mutex_);
+        boost::mutex::scoped_lock lock(added_connections_mutex_);
         added_connections_.clear();
     }
 
     {
-        std::lock_guard<std::mutex> lock(removed_connections_mutex_);
+        boost::mutex::scoped_lock lock(removed_connections_mutex_);
         removed_connections_.clear();
     }
     }
@@ -222,7 +222,7 @@ namespace xcros
     while(!shutting_down_)
     {
         {
-        std::lock_guard<std::mutex> lock(added_connections_mutex_);
+        boost::mutex::scoped_lock lock(added_connections_mutex_);
         S_ASyncXMLRPCConnection::iterator it = added_connections_.begin();
         S_ASyncXMLRPCConnection::iterator end = added_connections_.end();
         for (; it != end; ++it)
@@ -236,7 +236,7 @@ namespace xcros
 
         // Update the XMLRPC server, blocking for at most 100ms in select()
         {
-        std::lock_guard<std::mutex> lock(functions_mutex_);
+        boost::mutex::scoped_lock lock(functions_mutex_);
         server_.work(0.1);
         }
 
@@ -263,7 +263,7 @@ namespace xcros
         }
 
         {
-        std::lock_guard<std::mutex> lock(removed_connections_mutex_);
+        boost::mutex::scoped_lock lock(removed_connections_mutex_);
         S_ASyncXMLRPCConnection::iterator it = removed_connections_.begin();
         S_ASyncXMLRPCConnection::iterator end = removed_connections_.end();
         for (; it != end; ++it)
@@ -282,7 +282,7 @@ namespace xcros
     // go through our vector of clients and grab the first available one
     RobotRpcClient *c = NULL;
 
-    std::lock_guard<std::mutex> lock(clients_mutex_);
+    boost::mutex::scoped_lock lock(clients_mutex_);
 
     for (V_CachedRobotRpcClient::iterator i = clients_.begin();
         !c && i != clients_.end(); )
@@ -334,7 +334,7 @@ namespace xcros
 
     void RobotRPCManager::releaseRobotRPCClient(RobotRpcClient *c)
     {
-    std::lock_guard<std::mutex> lock(clients_mutex_);
+    boost::mutex::scoped_lock lock(clients_mutex_);
 
     for (V_CachedRobotRpcClient::iterator i = clients_.begin();
         i != clients_.end(); ++i)
@@ -359,19 +359,19 @@ namespace xcros
 
     void RobotRPCManager::addASyncConnection(const ASyncXMLRPCConnectionPtr& conn)
     {
-    std::lock_guard<std::mutex> lock(added_connections_mutex_);
+    boost::mutex::scoped_lock lock(added_connections_mutex_);
     added_connections_.insert(conn);
     }
 
     void RobotRPCManager::removeASyncConnection(const ASyncXMLRPCConnectionPtr& conn)
     {
-    std::lock_guard<std::mutex> lock(removed_connections_mutex_);
+    boost::mutex::scoped_lock lock(removed_connections_mutex_);
     removed_connections_.insert(conn);
     }
 
     bool RobotRPCManager::bind(const std::string& function_name, const XMLRPCFunc& cb)
     {
-    std::lock_guard<std::mutex> lock(functions_mutex_);
+    boost::mutex::scoped_lock lock(functions_mutex_);
     if (functions_.find(function_name) != functions_.end())
     {
         return false;
@@ -389,7 +389,7 @@ namespace xcros
     void RobotRPCManager::unbind(const std::string& function_name)
     {
     unbind_requested_ = true;
-    std::lock_guard<std::mutex> lock(functions_mutex_);
+    boost::mutex::scoped_lock lock(functions_mutex_);
     functions_.erase(function_name);
     unbind_requested_ = false;
     }

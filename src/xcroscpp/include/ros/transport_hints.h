@@ -1,7 +1,7 @@
 #ifndef _XCROSCPP_TRANSPORT_HINTS_H_
 #define _XCROSCPP_TRANSPORT_HINTS_H_
 
-#include "xcroscpp_common.h"
+#include "ros/xcroscpp_common.h"
 #include "ros/forwards.h"
 
 #include <boost/lexical_cast.hpp>

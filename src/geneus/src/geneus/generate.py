@@ -103,7 +103,7 @@ def lisp_type(t, array):
     elif is_float(t):
         return 'float'
     elif is_time(t):
-        return 'ros::time'
+        return 'xcros::time'
     elif is_string(t):
         return 'string'
     else:
@@ -142,7 +142,7 @@ def lisp_initvalue(t):
     elif is_float(t):
         return '0.0'
     elif is_time(t):
-        return '(instance ros::time :init)'
+        return '(instance xcros::time :init)'
     elif is_string(t):
         return '\"\"'
     else:
@@ -156,7 +156,7 @@ def lisp_initform(t):
     elif is_float(t):
         return 'float'
     elif is_time(t):
-        return 'ros::time'
+        return 'xcros::time'
     elif is_string(t):
         return 'string'
     else:

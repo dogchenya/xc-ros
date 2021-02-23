@@ -33,7 +33,7 @@
 #include <ros/package.h>
 #include <sys/time.h>
 
-using namespace ros;
+using namespace xcros;
 
 TEST(Package, getPath)
 {

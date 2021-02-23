@@ -108,7 +108,7 @@ namespace xcros {
   typedef struct pollfd socket_pollfd;
 #endif
 
-typedef std::shared_ptr<std::vector<socket_pollfd> > pollfd_vector_ptr;
+typedef boost::shared_ptr<std::vector<socket_pollfd> > pollfd_vector_ptr;
 
 /*****************************************************************************
 ** Functions

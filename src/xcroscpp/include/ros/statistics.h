@@ -1,10 +1,10 @@
 #ifndef _XCROSCPP_STATISTICS_H_
 #define _XCROSCPP_STATISTICS_H_
 
-#include "forwards.h"
-#include "poll_set.h"
+#include "ros/forwards.h"
+#include "ros/poll_set.h"
 #include "ros/xcroscpp_common.h"
-#include "publisher.h"
+#include "ros/publisher.h"
 #include <ros/time.h>
 #include "ros/subscription_callback_helper.h"
 #include <map>

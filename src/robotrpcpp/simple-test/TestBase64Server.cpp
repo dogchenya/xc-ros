@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
   }
   int port = atoi(argv[1]);
 
-  //XmlRpc::setVerbosity(5);
+  //RobotRpc::setVerbosity(5);
 
   // Create the server socket on the specified port
   s.bindAndListen(port);

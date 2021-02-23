@@ -4,7 +4,7 @@
 #include <memory>
 #include "ros/xcroscpp_common.h"
 #include "ros/types.h"
-#include "forwards.h"
+#include "ros/forwards.h"
 
 namespace xcros
 {

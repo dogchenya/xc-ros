@@ -15,7 +15,7 @@
 #include "ros/connection.h"
 #include "ros/file_log.h"
 
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #include <ros/console.h>
 

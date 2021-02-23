@@ -18,8 +18,8 @@ namespace xcros
 
     public:
         TimeNotInitializedException()
-            :Super("Cannot use ros::Time::now() before the first NodeHandle has been created or ros::start() has been called.  "
-                  "If this is a standalone app or test that just uses ros::Time and does not communicate over ROS, you may also call ros::Time::init()")
+            :Super("Cannot use xcros::Time::now() before the first NodeHandle has been created or ros::start() has been called.  "
+                  "If this is a standalone app or test that just uses xcros::Time and does not communicate over ROS, you may also call xcros::Time::init()")
             {}
 
 
@@ -99,7 +99,7 @@ namespace xcros
   /**
    * \brief Time representation.  May either represent wall clock time or ROS clock time.
    *
-   * ros::TimeBase provides most of its functionality.
+   * xcros::TimeBase provides most of its functionality.
    */
   class ROSTIME_DECL Time : public TimeBase<Time, Duration>
   {
@@ -155,7 +155,7 @@ namespace xcros
   /**
    * \brief Time representation.  Always wall-clock time.
    *
-   * ros::TimeBase provides most of its functionality.
+   * xcros::TimeBase provides most of its functionality.
    */
   class ROSTIME_DECL WallTime : public TimeBase<WallTime, WallDuration>
   {
@@ -189,7 +189,7 @@ namespace xcros
    *
    * Not affected by ROS time.
    *
-   * ros::TimeBase provides most of its functionality.
+   * xcros::TimeBase provides most of its functionality.
    */
   class ROSTIME_DECL SteadyTime : public TimeBase<SteadyTime, WallDuration>
   {

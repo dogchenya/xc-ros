@@ -18,7 +18,7 @@ PollManager::~PollManager()
 void PollManager::start()
 {
   shutting_down_ = false;
-  thread_ = std::thread(&PollManager::threadFunc, this);
+  thread_ = boost::thread(&PollManager::threadFunc, this);
 }
 
 void PollManager::shutdown()
