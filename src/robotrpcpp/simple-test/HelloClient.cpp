@@ -1,5 +1,5 @@
-#include "XmlRpcValue.h"
-#include "RobotRpcClient.h"
+#include "rpcpp/XmlRpcValue.h"
+#include "rpcpp/RobotRpcClient.h"
 #include <iostream>
 #include <stdlib.h>
 

@@ -26,6 +26,7 @@ from catkin_pkg.workspaces import ensure_workspace_marker
 
 
 def main():
+    pass
     args = _parse_args()
     cmake_args = args.cmake_args
 

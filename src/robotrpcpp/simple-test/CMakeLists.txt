@@ -1,4 +1,5 @@
-
+find_package(Boost REQUIRED COMPONENTS system thread)
+include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(helloclient HelloClient.cpp)
 target_link_libraries(helloclient  robotrpcpp)

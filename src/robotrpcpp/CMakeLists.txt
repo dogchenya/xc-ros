@@ -54,6 +54,6 @@ install(TARGETS robotrpcpp
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
 
-# if (CATKIN_ENABLE_TESTING)
-#   add_subdirectory(test)
-# endif()
+if (CATKIN_ENABLE_TESTING)
+  add_subdirectory(simple-test)
+endif()

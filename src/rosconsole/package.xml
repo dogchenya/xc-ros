@@ -1,5 +1,5 @@
 <package>
-  <name>xcrosconsole</name>
+  <name>rosconsole</name>
   <version>1.13.7</version>
   <description>ROS console output library.</description>
   <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>

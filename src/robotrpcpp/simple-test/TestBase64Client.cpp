@@ -1,4 +1,4 @@
-#include "RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 #if defined(_MSC_VER)
 # pragma warning(disable:4786)    // identifier was truncated in debug info
@@ -8,9 +8,9 @@
 #include <fstream>
 #include <stdlib.h>
 
-#include "RobotRpcClient.h"
-#include "RobotRpcServerMethod.h"
-#include "XmlRpcValue.h"
+#include "rpcpp/RobotRpcClient.h"
+#include "rpcpp/RobotRpcServerMethod.h"
+#include "rpcpp/XmlRpcValue.h"
 
 using namespace RobotRpc;
 
