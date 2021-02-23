@@ -26,7 +26,7 @@ void PollManager::shutdown()
   if (shutting_down_) return;
 
   shutting_down_ = true;
-  if (thread_.get_id() != std::this_thread::get_id())
+  if (thread_.get_id() != boost::this_thread::get_id())
   {
     thread_.join();
   }
