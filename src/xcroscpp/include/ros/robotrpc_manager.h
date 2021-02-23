@@ -12,7 +12,7 @@
 #include "ros/duration.h"
 #include "ros/time.h"
 
-#include "robotrpcpp/include/RobotRpc.h"
+#include "rpcpp/RobotRpc.h"
 
 namespace xcros
 {
@@ -62,7 +62,7 @@ namespace xcros
     class RobotRPCManager;
     typedef boost::shared_ptr<RobotRPCManager> RobotRPCManagerPtr;
 
-    typedef std::function<void(RobotRpc::XmlRpcValue&, RobotRpc::XmlRpcValue&)> XMLRPCFunc;
+    typedef boost::function<void(RobotRpc::XmlRpcValue&, RobotRpc::XmlRpcValue&)> XMLRPCFunc;
 
     //class RobotRPCManager : public Singleton<RobotRPCManager>
     class RobotRPCManager : public SingletonPtr<RobotRPCManager>
@@ -99,20 +99,20 @@ namespace xcros
         bool shutting_down_;
         std::string uri_;
         int port_;
-        std::thread server_thread_;
+        boost::thread server_thread_;
 
         RobotRpc::RobotRpcServer server_;
         typedef std::vector<CachedRobotRpcClient> V_CachedRobotRpcClient;
         V_CachedRobotRpcClient clients_;
-        std::mutex clients_mutex_;
+        boost::mutex clients_mutex_;
         
         xcros::WallDuration master_retry_timeout_;
 
         S_ASyncXMLRPCConnection added_connections_;
-        std::mutex added_connections_mutex_;
+        boost::mutex added_connections_mutex_;
 
         S_ASyncXMLRPCConnection removed_connections_;
-        std::mutex removed_connections_mutex_;
+        boost::mutex removed_connections_mutex_;
 
         S_ASyncXMLRPCConnection connections_;
 
@@ -124,7 +124,7 @@ namespace xcros
             RobotRPCCallWrapperPtr wrapper;
         };
         typedef std::map<std::string, FunctionInfo> M_StringToFuncInfo;
-        std::mutex functions_mutex_;
+        boost::mutex functions_mutex_;
         M_StringToFuncInfo functions_;
 
         volatile bool unbind_requested_;
