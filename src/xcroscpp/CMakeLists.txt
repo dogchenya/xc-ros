@@ -142,7 +142,7 @@ install(DIRECTORY include/
 install(FILES ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros/xcroscpp_common.h
   DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ros)
 # install legacy infrastructure needed by rosbuild
-install(FILES rosbuild/xcroscpp.cmake
+install(FILES rosbuild/roscpp.cmake
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rosbuild)
 catkin_install_python(PROGRAMS
   rosbuild/scripts/genmsg_cpp.py
