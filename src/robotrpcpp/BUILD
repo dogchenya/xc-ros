@@ -3,7 +3,7 @@ COPTS = [
 ]
 
 cc_library(
-    name = "robot_rpc_cpp",
+    name = "robotrpcpp_lib",
     srcs = glob([
         "src/*.cpp",
         "src/**/*.cpp",
@@ -14,6 +14,9 @@ cc_library(
     ],
     copts = COPTS,
     linkstatic = True,
+    visibility = [
+        "//xcroscpp:__pkg__",
+        ]
 )
 
 cc_binary(
@@ -26,7 +29,7 @@ cc_binary(
     ],
     copts = COPTS,
     deps = [
-        ":robot_rpc_cpp",
+        ":robotrpcpp_lib",
     ],
 )
 
@@ -40,6 +43,6 @@ cc_binary(
     ],
     copts = COPTS,
     deps = [
-        ":robot_rpc_cpp",
+        ":robotrpcpp_lib",
     ],
 )

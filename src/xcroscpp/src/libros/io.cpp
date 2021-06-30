@@ -35,7 +35,7 @@
 ** Includes
 *****************************************************************************/
 
-#include "config.h"
+//#include "config.h"
 
 #include <ros/io.h>
 #include <ros/assert.h> // don't need if we dont call the pipe functions.

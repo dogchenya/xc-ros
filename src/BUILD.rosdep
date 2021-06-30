@@ -1,0 +1,16 @@
+COPTS = [
+    "-std=c++11"
+]
+
+cc_library(
+    name = "rosdep_lib",
+    srcs = glob([
+        "include/**/*.h",
+    ]),
+    includes = [
+         "include"
+    ],
+    copts = COPTS,
+    linkstatic = True,
+    visibility = ["//visibility:public"],
+)
